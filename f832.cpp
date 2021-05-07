@@ -78,3 +78,53 @@ int main()
         ivec.clear();
     }
 }
+/* map版解法
+#include <iostream>
+#include <algorithm>
+#include<vector>
+#include<cstring>
+#include<stack>
+#include<map>
+using namespace std;
+typedef long long ll;
+int main()
+{
+    cin.tie(0);
+    ios::sync_with_stdio(false);//複雜度O(m*log(n))
+    int n,m,temp;
+    while(cin>>n>>m){
+        map<int,int> mi;
+        map<int,int>::iterator it;
+        ll ans=0;
+        while(n--){
+            cin>>temp;
+            mi[temp]++;
+        }
+        while(m--){
+            cin>>temp;
+            it=mi.upper_bound(temp);
+            if(it !=mi.begin()){
+                bool error=false;
+                for(it--;it !=mi.begin();it--){
+                    if(it->second !=0){
+                        if(--it->second==0){
+                            error=true;
+                            mi.erase(it);
+                        }
+                        ans+=it->first;
+                        break;
+                    }
+                }
+                if(error==false&&it==mi.begin()){
+                    if(it->second !=0){
+                        it->second--;
+                        ans+=it->first;
+                    }
+                }
+            }
+        }
+        cout<<ans<<"\n";
+        mi.clear();
+    }
+}
+*/
