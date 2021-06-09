@@ -32,7 +32,7 @@ void dfs(int x,int y,bool isorigin){
 }
 int main() {
     char c;
-    while(cin>>n>>m){
+    while(cin>>n>>m){//環形的條件是隨便選一個點都有兩個方向可以走，而且往其中的一個方向走一次，另一個方向就不能走了
         int X=0,Y=0;
         ull Z=1;
         for(int i=0;i<n;i++){
