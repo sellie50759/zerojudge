@@ -11,6 +11,8 @@
 8 
 1 4 2 4 5 6 7 8
 10
+範例輸出 #1
+3
 */
 #include<iostream>
 #include<cstring>
